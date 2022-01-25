@@ -45,22 +45,22 @@ public class ApplicationUserService implements UserDetailsService {
 		
 		appUserRepository.save(appUser);
 		
-		/*
-		 * //Send Confirmation Token String token = UUID.randomUUID().toString();
-		 * ConfirmationToken confirmationToken = new ConfirmationToken(token,
-		 * LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), appUser);
-		 * 
-		 * confirmationTokenService.saveConfirmationToken(confirmationToken);
-		 * 
-		 * // Send email
-		 */		
+		
+		  //Send Confirmation Token String token = UUID.randomUUID().toString();
+		  ConfirmationToken confirmationToken = new ConfirmationToken(token,
+		  LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), appUser);
+		  
+		  confirmationTokenService.saveConfirmationToken(confirmationToken);
+		  
+		  // Send email
+		 		
 		return "Works";
 	}
 	
-	/*
-	 * public int enableAppUser(String email) {
-	 * 
-	 * return appUserRepository.enableAppUser(email); }
-	 */
+	
+	  public int enableAppUser(String email) {
+	  
+	  return appUserRepository.enableAppUser(email); }
+	 
 
 }
