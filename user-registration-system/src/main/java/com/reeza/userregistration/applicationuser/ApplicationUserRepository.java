@@ -14,13 +14,13 @@ public interface ApplicationUserRepository extends JpaRepository<ApplicationUser
 	
 	Optional<ApplicationUser> findByEmail(String email);
 
-	/*
-	 * @Transactional
-	 * 
-	 * @Modifying
-	 * 
-	 * @Query("UPDATE ApplicationUser a SET a.enabled = TRUE WHERE a.email = ?1")
-	 * int enableAppUser(String email);
-	 */
+	
+	  @Transactional
+	  
+	  @Modifying
+	  
+	  @Query("UPDATE ApplicationUser a SET a.enabled = TRUE WHERE a.email = ?1")
+	  int enableAppUser(String email);
+	 
 	
 }
