@@ -1,13 +1,15 @@
 package com.reeza.userregistration.applicationuser;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.reeza.userregistration.registration.token.ConfirmationToken;
+import com.reeza.userregistration.registration.token.ConfirmationTokenService;
 
 //import com.reeza.userregistration.registration.token.ConfirmationToken;
 //import com.reeza.userregistration.registration.token.ConfirmationTokenService;
@@ -22,7 +24,7 @@ public class ApplicationUserService implements UserDetailsService {
 	private static final String userNotFoundMessage = "User with the email '%s' not found!";
 	
 	private final BCryptPasswordEncoder bCryptPasswordEcoder;
-	//private final ConfirmationTokenService confirmationTokenService;
+	private final ConfirmationTokenService confirmationTokenService;
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
