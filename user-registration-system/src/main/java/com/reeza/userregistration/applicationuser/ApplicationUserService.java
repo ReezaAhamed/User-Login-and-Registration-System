@@ -1,6 +1,7 @@
 package com.reeza.userregistration.applicationuser;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Service;
 import com.reeza.userregistration.registration.token.ConfirmationToken;
 import com.reeza.userregistration.registration.token.ConfirmationTokenService;
 
-//import com.reeza.userregistration.registration.token.ConfirmationToken;
-//import com.reeza.userregistration.registration.token.ConfirmationTokenService;
 
 import lombok.AllArgsConstructor;
 
@@ -48,7 +47,8 @@ public class ApplicationUserService implements UserDetailsService {
 		appUserRepository.save(appUser);
 		
 		
-		  //Send Confirmation Token String token = UUID.randomUUID().toString();
+		  //Send Confirmation Token
+		  String token = UUID.randomUUID().toString();
 		  ConfirmationToken confirmationToken = new ConfirmationToken(token,
 		  LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), appUser);
 		  
